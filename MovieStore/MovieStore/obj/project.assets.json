@@ -1200,11 +1200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\Movie\\MovieStore\\MovieStore\\MovieStore.csproj",
+      "projectUniqueName": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\MovieRepo\\MovieStore\\MovieStore\\MovieStore.csproj",
       "projectName": "MovieStore",
-      "projectPath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\Movie\\MovieStore\\MovieStore\\MovieStore.csproj",
+      "projectPath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\MovieRepo\\MovieStore\\MovieStore\\MovieStore.csproj",
       "packagesPath": "C:\\Users\\VICTUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\Movie\\MovieStore\\MovieStore\\obj\\",
+      "outputPath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\MovieRepo\\MovieStore\\MovieStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

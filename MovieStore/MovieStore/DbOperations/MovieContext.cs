@@ -3,9 +3,9 @@ using MovieStore.Entities;
 
 namespace MovieStore.DbOperations
 {
-    public class MovieContext : DbContext
+    public class MovieContext : DbContext , IMovieContext
     {
-        public MovieContext(DbContextOptions options) : base(options)
+        public MovieContext(DbContextOptions<MovieContext> options) : base(options)
         {
         }
 
@@ -16,8 +16,10 @@ namespace MovieStore.DbOperations
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
+
     }
-
-
-
 }

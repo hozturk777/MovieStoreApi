@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bZ2r7ofBr77HJ2oEHW3BDJ23x+o5+soSNFN2c+sYXvtBh6qWkTm9VXAR4XJXPoHt4tPk/BAFic8uyInSnTodxg==",
+  "dgSpecHash": "hmG5+oyTzEzEhu74eXuk+CjmMnDHnGBkioML7yMoVgbch23090YjgQAjDirAhAu9z6li2ETayr2RjQ5JbKV72Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\Movie\\MovieStore\\MovieStore\\MovieStore.csproj",
+  "projectFilePath": "C:\\Users\\VICTUS\\Desktop\\HÜSEYİN\\MovieRepo\\MovieStore\\MovieStore\\MovieStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VICTUS\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\VICTUS\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

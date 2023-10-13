@@ -13,6 +13,7 @@ namespace MovieStore.DbOperations
                 {
                     return;
                 }
+
                 context.Actors.AddRange
                     (
                     new Actor
@@ -26,6 +27,15 @@ namespace MovieStore.DbOperations
                         ActorSurname = "Öztürk",
                     }
                     );
+                context.Directors.AddRange
+                    (
+                    new Director
+                    {
+                        DirectorName = "Director1",
+                        DirectorSurname = "Directo11",
+                        
+                    }
+                    );
                 context.Genres.AddRange
                     (
                     new Genre
@@ -35,7 +45,7 @@ namespace MovieStore.DbOperations
                     new Genre
                     {
                         GenreName = "Animated"
-                    }
+                    },
                     new Genre
                     {
                         GenreName = "Comedy"
@@ -43,14 +53,16 @@ namespace MovieStore.DbOperations
                     );
                 context.Movies.AddRange
                     (
-                    new Movie
+                     new Movie
                     {
                         MovieName = "Berru",
                         MovieGenreId = 1,
                         PublishDate = new DateTime(2001, 05, 30),
                         Price = 15
+
                     }
                     );
+
             }
         }
     }
