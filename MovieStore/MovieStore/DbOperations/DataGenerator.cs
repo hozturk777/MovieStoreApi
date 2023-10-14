@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using MovieStore.Entities;
 
 namespace MovieStore.DbOperations
@@ -9,60 +10,29 @@ namespace MovieStore.DbOperations
         {
             using (var context = new MovieContext(serviceProvider.GetRequiredService<DbContextOptions<MovieContext>>()))
             {
-                if (context.Movies == null)
+                var movie = new List<Movie>
                 {
-                    return;
-                }
-
-                context.Actors.AddRange
-                    (
-                    new Actor
+                    new Movie
                     {
-                        ActorName = "Hüseyin",
-                        ActorSurname = "Öztürk",
-                    },
-                    new Actor
-                    {
-                        ActorName = "Hüseyin",
-                        ActorSurname = "Öztürk",
-                    }
-                    );
-                context.Directors.AddRange
-                    (
-                    new Director
-                    {
-                        DirectorName = "Director1",
-                        DirectorSurname = "Directo11",
-                        
-                    }
-                    );
-                context.Genres.AddRange
-                    (
-                    new Genre
-                    {
-                        GenreName = "Action"
-                    },
-                    new Genre
-                    {
-                        GenreName = "Animated"
-                    },
-                    new Genre
-                    {
-                        GenreName = "Comedy"
-                    }
-                    );
-                context.Movies.AddRange
-                    (
-                     new Movie
-                    {
-                        MovieName = "Berru",
+                        MovieName = "deneme",
+                        Price = 1,
                         MovieGenreId = 1,
-                        PublishDate = new DateTime(2001, 05, 30),
-                        Price = 15
-
+                        MovieDirector = "director",
+                        MovieActor = "actor",
+                        PublishDate = DateTime.Now
                     }
-                    );
-
+                };
+                var genre = new List<Genre>
+                {
+                    new Genre
+                    {
+                        Id = 1,
+                        GenreName = "Happy"
+                    }
+                };
+                context.Movies.AddRange(movie);
+                context.Genres.AddRange(genre);
+                context.SaveChanges();
             }
         }
     }

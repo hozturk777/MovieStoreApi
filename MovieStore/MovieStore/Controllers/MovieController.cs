@@ -5,7 +5,9 @@ using MovieStore.DbOperations;
 
 namespace MovieStore.Controllers
 {
-    public class MovieController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MovieController : ControllerBase
     {
         private readonly IMovieContext _movieContext;
         private readonly IMapper _mapper;

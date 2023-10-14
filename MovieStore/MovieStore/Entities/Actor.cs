@@ -6,8 +6,8 @@ namespace MovieStore.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string ActorName { get; set; }
-        public string ActorSurname { get; set; }
+        public string? ActorName { get; set; }
+        public string? ActorSurname { get; set; }
         public Movie? Movies { get; set; }
     }
 }

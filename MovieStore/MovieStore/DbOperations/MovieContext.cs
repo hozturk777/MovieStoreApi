@@ -5,8 +5,13 @@ namespace MovieStore.DbOperations
 {
     public class MovieContext : DbContext , IMovieContext
     {
-        public MovieContext(DbContextOptions<MovieContext> options) : base(options)
+        public MovieContext(DbContextOptions options) : base(options)
         {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseInMemoryDatabase(databaseName: "MovieDB");
         }
 
         public DbSet<Movie> Movies { get; set; }

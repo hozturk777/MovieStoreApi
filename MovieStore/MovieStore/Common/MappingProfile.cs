@@ -9,12 +9,8 @@ namespace MovieStore.Common
         public MappingProfile()
         {
             //Movie
-            CreateMap<Movie, MovieViewModel>()
-                .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => src.MovieGenre.GenreName));
-            CreateMap<Movie, MovieViewModel>()
-                .ForMember(dest => dest.MovieActor, opt => opt.MapFrom(src => src.MovieActor.ActorName));
-            CreateMap<Movie, MovieViewModel>()
-                .ForMember(dest => dest.MovieDirector, opt => opt.MapFrom(src => src.MovieDirector.DirectorName));
+            //CreateMap<Movie, MovieViewModel>()
+            //    .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => $"{src.MovieGenre}"));
         }
     }
 }
