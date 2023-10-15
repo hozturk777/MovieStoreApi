@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Application.MovieOperations.Quaries.GetMovies;
+using MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails;
 using MovieStore.DbOperations;
 
 namespace MovieStore.Controllers
@@ -18,11 +19,18 @@ namespace MovieStore.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("list/")]
+        [HttpGet("list/movie/")]
         public IActionResult GetMovies()
         {
             GetMoveisQuery getMoveisQuery = new GetMoveisQuery(_movieContext, _mapper);
             var result = getMoveisQuery.Handle();
+            return Ok(result);
+        }
+        [HttpGet("list/movieDetails")]
+        public IActionResult GetMoviesDetails()
+        {
+            GetMoviesDetailsQuery getMoviesDetails = new GetMoviesDetailsQuery(_movieContext, _mapper);
+            var result = getMoviesDetails.Handle();
             return Ok(result);
         }
     }
