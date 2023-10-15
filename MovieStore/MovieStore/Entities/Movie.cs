@@ -10,7 +10,7 @@ namespace MovieStore.Entities
         public int Id { get; set; }
         public string? MovieName { get; set; }
         public float Price { get; set; }
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
         public int MovieGenreId { get; set; }
         public Genre? MovieGenre { get; set; }
         public string? MovieDirector { get; set; }

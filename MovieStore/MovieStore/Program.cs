@@ -18,7 +18,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MovieContext>();
 builder.Services.AddScoped<IMovieContext, MovieContext>();
 //builder.Services.AddScoped<IMovieContext>(provider => provider.GetService<MovieContext>());
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+//builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();

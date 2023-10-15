@@ -20,29 +20,29 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
         public List<MovieViewModel> Handle()
         {
             var movieList = _movieContext.Movies.Include(x => x.MovieGenre).OrderBy(x => x.Id).ToList();
-            //List<MovieViewModel> movieViewModels = _mapper.Map<List<MovieViewModel>>(movieList);
-            List<MovieViewModel> bvm = new List<MovieViewModel>();
-            foreach (var book in movieList)
-            {
-                bvm.Add(new MovieViewModel()
-                {
-                    MovieName = book.MovieName,
-                    //Genre = ((GenreEnum)book.GenreId).ToString(),
-                   //PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy"),
-                    Price= (int)book.Price
-                });
-            }
-            return bvm;
+            List<MovieViewModel> movieViewModels = _mapper.Map<List<MovieViewModel>>(movieList);
+            //List<MovieViewModel> bvm = new List<MovieViewModel>();
+            //foreach (var book in movieList)
+            //{
+            //    bvm.Add(new MovieViewModel()
+            //    {
+            //        MovieName = book.MovieName,
+            //        //Genre = ((GenreEnum)book.GenreId).ToString(),
+            //       //PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy"),
+            //        Price= (int)book.Price
+            //    });
+            //}
+            return movieViewModels;
         }
 
         public class MovieViewModel
         {
             public string? MovieName { get; set; }
-            public int Price { get; set; }
+            public float Price { get; set; }
             public string? MovieGenre { get; set; }
             public string? MovieDirector { get; set; }
             public string? MovieActor { get; set; }
-            public int PublishDate { get; set; }
+            public string? PublishDate { get; set; }
         }
 
     }
