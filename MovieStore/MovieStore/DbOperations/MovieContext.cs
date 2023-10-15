@@ -21,6 +21,8 @@ namespace MovieStore.DbOperations
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+
+
         public override int SaveChanges()
         {
             return base.SaveChanges();

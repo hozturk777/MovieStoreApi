@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieStore.Entities
 {
@@ -8,6 +9,5 @@ namespace MovieStore.Entities
         public int Id { get; set; }
         public string? ActorName { get; set; }
         public string? ActorSurname { get; set; }
-        public Movie? Movies { get; set; }
     }
 }

@@ -7,37 +7,66 @@ namespace MovieStore.DbOperations
     public class DataGenerator
     {
         public static void Initialize(IServiceProvider serviceProvider)
-        {string currentdatetime = DateTime.Now.ToString("dd'/'MM'/'yyyy");
+        {
             using (var context = new MovieContext(serviceProvider.GetRequiredService<DbContextOptions<MovieContext>>()))
             {
-                var movie = new List<Movie>
-                {
-                    new Movie
-                    {
-                        MovieName = "deneme",
-                        Price = 1,
-                        MovieGenreId = 2,
-                        MovieDirector = "director",
-                        MovieActor = "actor",
-                        PublishDate = DateTime.Now.ToString("MM/dd/yyyy")
 
-            }
-                };
+                //  GENRE
                 var genre = new List<Genre>
                 {
                     new Genre
                     {
-                        Id = 1,
                         GenreName = "Genre1"
                     },
                     new Genre
                     {
-                        Id = 2,
                         GenreName = "Genre2"
                     }
                 };
-                context.Movies.AddRange(movie);
                 context.Genres.AddRange(genre);
+
+                //  ACTOR
+                var actor = new List<Actor>
+                {
+                    new Actor
+                    {
+                        ActorName = "Actor1",
+                        ActorSurname = "Actor1",
+                        //MoviesId = new List<int> {1, 2}
+                    },
+                    new Actor
+                    {
+                        ActorName = "Actor2",
+                        ActorSurname = "Actor2",
+                        //MoviesId = new List<int> {1, 2}
+                    }
+                };
+                context.Actors.AddRange(actor);
+
+                //  MOVİE
+                var movie = new List<Movie>
+                {
+                    new Movie
+                    {
+                        MovieName = "movie1",
+                        Price = 113,
+                        MovieGenreId = 1,
+                        MovieDirector = "director1",
+                        PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
+                        MovieActor = new List<Actor>()
+                    },
+                    new Movie
+                    {
+                        MovieName = "movie2",
+                        Price = 3123,
+                        MovieGenreId = 2,
+                        MovieDirector = "director2",
+                        PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
+                        MovieActor = new List<Actor>()
+                    }
+                };
+
+                context.Movies.AddRange(movie);
                 context.SaveChanges();
             }
         }

@@ -16,7 +16,7 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
 
         public List<MovieDetailsViewModel> Handle()
         {
-            var movieList = _context.Movies.Include(x => x.MovieGenre).OrderBy(x => x.Id).ToList();
+            var movieList = _context.Movies.Include(x => x.MovieActor).Include(x => x.MovieGenre).OrderBy(x => x.Id).ToList();
             List<MovieDetailsViewModel> movieDetails = _mapper.Map<List<MovieDetailsViewModel>>(movieList);
             return movieDetails;
         }
@@ -27,7 +27,7 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public float Price { get; set; }
             public string? MovieGenre { get; set; }
             public string? MovieDirector { get; set; }
-            public string? MovieActor { get; set; }
+            public List<string>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
         }
     }
