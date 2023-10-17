@@ -12,12 +12,12 @@ namespace MovieStore.Entities
         public float Price { get; set; }
         public string? PublishDate { get; set; }
         public int MovieGenreId { get; set; }
-        public Genre? MovieGenre { get; set; }
-        public string? MovieDirector { get; set; }
-
-        public List<Actor>? MovieActor { get; set; }
-        //public List<string>? MovieActor { get; set; }
+        public Genre? MovieGenre { get; set; } = null;
+        public string? MovieDirector { get; set; } = null;
+        public List<Actor>? MovieActor { get; set; } = null;
         
+        
+
     }
 }
  

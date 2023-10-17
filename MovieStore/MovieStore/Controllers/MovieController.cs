@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using MovieStore.Application.MovieOperations.Commands.CreateMovie;
 using MovieStore.Application.MovieOperations.Quaries.GetMovies;
 using MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails;
 using MovieStore.DbOperations;
+using static MovieStore.Application.MovieOperations.Commands.CreateMovie.CreateMoviesQuery;
 
 namespace MovieStore.Controllers
 {
@@ -32,6 +34,14 @@ namespace MovieStore.Controllers
             GetMoviesDetailsQuery getMoviesDetails = new GetMoviesDetailsQuery(_movieContext, _mapper);
             var result = getMoviesDetails.Handle();
             return Ok(result);
+        }
+        [HttpPost("create/movie")]
+        public IActionResult AddMovie([FromBody] CreateMoviesModel createMoviesModel) 
+        {
+            CreateMoviesQuery command = new CreateMoviesQuery(_movieContext, _mapper);
+            command.Model = createMoviesModel;
+            command.Handle();
+            return Ok();
         }
     }
 }

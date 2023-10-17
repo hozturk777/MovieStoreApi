@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MovieStore.DbOperations;
+using MovieStore.Entities;
 
 namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
 {
@@ -27,8 +28,9 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public float Price { get; set; }
             public string? MovieGenre { get; set; }
             public string? MovieDirector { get; set; }
-            public List<string>? MovieActor { get; set; }
+            public List<Actor>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
+
         }
     }
 }

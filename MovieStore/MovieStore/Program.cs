@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
-//builder.Services.AddDbContext<MovieContext>(options => options.UseInMemoryDatabase(databaseName :"MovieDB"));
+builder.Services.AddDbContext<MovieContext>(options => options.UseInMemoryDatabase(databaseName :"MovieDB"));
 builder.Services.AddDbContext<MovieContext>();
 builder.Services.AddScoped<IMovieContext, MovieContext>();
 //builder.Services.AddScoped<IMovieContext>(provider => provider.GetService<MovieContext>());

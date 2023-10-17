@@ -12,8 +12,9 @@ namespace MovieStore.DbOperations
             {
 
                 //  GENRE
-                var genre = new List<Genre>
-                {
+                //var genre = new List<Genre>
+                context.Genres.AddRange
+                (
                     new Genre
                     {
                         GenreName = "Genre1"
@@ -22,12 +23,13 @@ namespace MovieStore.DbOperations
                     {
                         GenreName = "Genre2"
                     }
-                };
-                context.Genres.AddRange(genre);
+                );
+
 
                 //  ACTOR
-                var actor = new List<Actor>
-                {
+                //var actor = new List<Actor>
+                context.Actors.AddRange
+                (
                     new Actor
                     {
                         ActorName = "Actor1",
@@ -40,12 +42,22 @@ namespace MovieStore.DbOperations
                         ActorSurname = "Actor2",
                         //MoviesId = new List<int> {1, 2}
                     }
-                };
-                context.Actors.AddRange(actor);
+                );
+
+                //  DİRECTOR
+                context.Directors.AddRange
+                    (
+                        new Director
+                        {
+                            DirectorName = "Director1",
+                            DirectorSurname = "Director1"
+                        }
+                    );
 
                 //  MOVİE
-                var movie = new List<Movie>
-                {
+                //var movie = new List<Movie>
+                context.Movies.AddRange
+                (
                     new Movie
                     {
                         MovieName = "movie1",
@@ -64,9 +76,11 @@ namespace MovieStore.DbOperations
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
                         MovieActor = new List<Actor>()
                     }
-                };
+                );
 
-                context.Movies.AddRange(movie);
+                //context.Genres.AddRange(genre);
+                //context.Actors.AddRange(actor);
+                //context.Movies.AddRange(movie);
                 context.SaveChanges();
             }
         }
