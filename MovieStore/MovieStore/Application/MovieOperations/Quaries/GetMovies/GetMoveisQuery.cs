@@ -19,7 +19,11 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
 
         public List<MovieViewModel> Handle()
         {
-            var movieList = _movieContext.Movies.Include(x => x.MovieGenre).OrderBy(x => x.Id).ToList();
+            var movieList = _movieContext.Movies
+                .Where(x => x.IsActive == true)
+                .Include(x => x.MovieGenre)
+                .OrderBy(x => x.Id)
+                .ToList();
             List<MovieViewModel> movieViewModels = _mapper.Map<List<MovieViewModel>>(movieList);
             //List<MovieViewModel> bvm = new List<MovieViewModel>();
             //foreach (var book in movieList)
@@ -32,6 +36,7 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
             //        Price= (int)book.Price
             //    });
             //}
+            
             return movieViewModels;
         }
 

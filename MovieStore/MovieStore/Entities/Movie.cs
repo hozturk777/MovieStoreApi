@@ -15,8 +15,8 @@ namespace MovieStore.Entities
         public Genre? MovieGenre { get; set; } = null;
         public string? MovieDirector { get; set; } = null;
         public List<Actor>? MovieActor { get; set; } = null;
-        
-        
+        public bool IsActive { get; set; } = true;
+
 
     }
 }
