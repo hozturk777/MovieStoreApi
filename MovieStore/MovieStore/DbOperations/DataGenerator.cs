@@ -43,7 +43,7 @@ namespace MovieStore.DbOperations
                         //MoviesId = new List<int> {1, 2}
                     }
                 );
-
+                context.SaveChanges();
                 //  DİRECTOR
                 context.Directors.AddRange
                     (
