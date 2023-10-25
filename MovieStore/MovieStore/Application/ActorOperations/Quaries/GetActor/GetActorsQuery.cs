@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MovieStore.DbOperations;
+using MovieStore.Entities;
 using static MovieStore.Application.MovieOperations.Quaries.GetMovies.GetMoveisQuery;
 
 namespace MovieStore.Application.ActorOperations.Quaries.GetActor
@@ -15,18 +17,25 @@ namespace MovieStore.Application.ActorOperations.Quaries.GetActor
             _mapper = mapper;
         }
 
-        public List<ActorViewModel> Handle()
+        public List<GetActorViewModel> Handle()
         {
-            var actors = _context.Actors.OrderBy(x => x.Id).ToList();
-            List<ActorViewModel> actorsList = _mapper.Map<List<ActorViewModel>>(actors);
+            var actors = _context.Actors
+                .Where(x => x.IsActive == true)
+                //.Include(x => x.ActorMovie)
+                .OrderBy(x => x.Id)
+                .ToList();
+            List<GetActorViewModel> actorsList = _mapper.Map<List<GetActorViewModel>>(actors);
+            
             return actorsList;
         }
 
-        public class ActorViewModel
+        public class GetActorViewModel
         {
             public int Id { get; set; }
+            public int IdId { get; set; }
             public string? ActorName { get; set; }
             public string? ActorSurname { get; set; }
+            //public List<Movie>? ActorMovie { get; set; }
         }
     }
 }

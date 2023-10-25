@@ -10,5 +10,6 @@ namespace MovieStore.Entities
         public Movie Movie { get; set; }
         public Movie MoviePrice { get; set; }
         public DateTime SellTime { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

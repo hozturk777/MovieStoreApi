@@ -10,6 +10,7 @@ namespace MovieStore.Entities
         public string? CustomerSurname { get; set; }
         public Movie? BuyMovies { get; set; }
         public Movie? FavMovies { get; set; }
+        public bool IsActive { get; set; } = true;
 
     }
 }

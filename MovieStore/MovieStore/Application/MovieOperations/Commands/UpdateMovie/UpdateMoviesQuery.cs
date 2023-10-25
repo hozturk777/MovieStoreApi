@@ -26,7 +26,7 @@ namespace MovieStore.Application.MovieOperations.Commands.UpdateMovie
             movieUpdate.Price = Model.Price != default ? Model.Price : movieUpdate.Price;
             movieUpdate.MovieGenreId = Model.MovieGenreId != default ? Model.MovieGenreId : movieUpdate.MovieGenreId;
             movieUpdate.MovieDirector = Model.MovieDirector != default ? Model.MovieDirector : movieUpdate.MovieDirector;
-            movieUpdate.MovieActor = Model.MovieActor != default ? Model.MovieActor : movieUpdate.MovieActor;
+            movieUpdate.MovieActorId = Model.MovieActorId != default ? Model.MovieActorId : movieUpdate.MovieActorId; 
 
             _context.SaveChanges();
         }
@@ -34,9 +34,9 @@ namespace MovieStore.Application.MovieOperations.Commands.UpdateMovie
         {
             public string? MovieName { get; set; }
             public float Price { get; set; }
-            public int MovieGenreId { get; set; }
+            public int? MovieGenreId { get; set; }
             public string? MovieDirector { get; set; }
-            public List<Actor>? MovieActor { get; set; }
+            public int? MovieActorId { get; set; }
             //public string? PublishDate { get; set; }
         }
     }

@@ -21,6 +21,7 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
         {
             var movieList = _movieContext.Movies
                 .Where(x => x.IsActive == true)
+                .Include(x => x.MovieActor)
                 .Include(x => x.MovieGenre)
                 .OrderBy(x => x.Id)
                 .ToList();

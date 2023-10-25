@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Application.ActorOperations.Commands.CreateActor;
+using MovieStore.Application.ActorOperations.Commands.DeleteActor;
 using MovieStore.Application.ActorOperations.Commands.UpdateActor;
 using MovieStore.Application.ActorOperations.Quaries.GetActor;
 using MovieStore.DbOperations;
@@ -43,6 +44,15 @@ namespace MovieStore.Controllers
             UpdateActorCommand command = new UpdateActorCommand(_movieContext);
             command.Id = id;
             command.Model = model;
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpDelete("delete/actor")]
+        public IActionResult DeleteActor(int id)
+        {
+            DeleteActorCommand command = new DeleteActorCommand(_movieContext);
+            command.Id = id;
             command.Handle();
             return Ok();
         }

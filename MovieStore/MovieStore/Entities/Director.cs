@@ -8,6 +8,6 @@ namespace MovieStore.Entities
         public int Id { get; set; }
         public string? DirectorName { get; set; }
         public string? DirectorSurname { get; set; }
-        public Movie? Movies { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MovieStore.Entities;
+using System.Collections;
 
 namespace MovieStore.DbOperations
 {
@@ -34,15 +35,20 @@ namespace MovieStore.DbOperations
                     {
                         ActorName = "Actor1",
                         ActorSurname = "Actor1",
+                        //IdId = context.Actors.
+                        //ActorMovie = new List<Movie>(),
+                        //ActorMovieId = new List<MovieId>()
                         //MoviesId = new List<int> {1, 2}
                     },
                     new Actor
                     {
                         ActorName = "Actor2",
                         ActorSurname = "Actor2",
+                        //ActorMovie = new List<Movie>(),
+                        //ActorMovieId = new List<MovieId>()
                         //MoviesId = new List<int> {1, 2}
                     }
-                );
+                ); 
                 context.SaveChanges();
                 //  DİRECTOR
                 context.Directors.AddRange
@@ -65,7 +71,8 @@ namespace MovieStore.DbOperations
                         MovieGenreId = 1,
                         MovieDirector = "director1",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        MovieActor = new List<Actor>()
+                        //MovieActorId = 1
+                        //MovieActor = new List<Actor>()
                     },
                     new Movie
                     {
@@ -74,10 +81,12 @@ namespace MovieStore.DbOperations
                         MovieGenreId = 2,
                         MovieDirector = "director2",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        MovieActor = new List<Actor>()
+                        //MovieActorId = 1,              
+                        //MovieActor = new List<Actor>()
                     }
-                );
-
+                    
+                ) ;
+                
                 //context.Genres.AddRange(genre);
                 //context.Actors.AddRange(actor);
                 //context.Movies.AddRange(movie);

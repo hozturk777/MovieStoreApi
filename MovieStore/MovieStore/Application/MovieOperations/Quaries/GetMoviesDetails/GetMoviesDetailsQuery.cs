@@ -23,7 +23,20 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
                 .Include(x => x.MovieGenre)
                 .OrderBy(x => x.Id)
                 .ToList();
+            //var id = movieList.
+            List<Actor>? falan = new List<Actor>();
+            foreach (var movie in movieList)
+            {
+                var deneme = _context.Actors.Where(x => x.Id == movie.MovieActorId);
+                foreach (var actor in deneme)
+                {
+                    falan.Add(actor);
+                }
+                
+                movie.MovieActor = falan;
+            }
             List<MovieDetailsViewModel> movieDetails = _mapper.Map<List<MovieDetailsViewModel>>(movieList);
+            //var den = _context.Actors.Where(x => x.ActorMovie)
             return movieDetails;
         }
 
@@ -36,6 +49,11 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public List<Actor>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
 
+        }
+        public class MovieActorViewModel
+        {
+            public string ActorName { get; set; }
+            public string ActorSurname { get; set; }
         }
     }
 }
