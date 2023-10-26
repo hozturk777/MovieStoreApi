@@ -23,22 +23,17 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
                 .Include(x => x.MovieGenre)
                 .OrderBy(x => x.Id)
                 .ToList();
-            //var id = movieList.
-            List<Actor>? falan = new List<Actor>();
-            foreach (var movie in movieList)
-            {
-                var deneme = _context.Actors.Where(x => x.Id == movie.MovieActorId);
-                foreach (var actor in deneme)
-                {
-                    falan.Add(actor);
-                }
-                
-                movie.MovieActor = falan;
-            }
+
+            //döngüden kurtulmak için DTO kullanılabilir. Veya automapper kullanıp include'yi kullanma
+
+
+
+            //return movieList;
             List<MovieDetailsViewModel> movieDetails = _mapper.Map<List<MovieDetailsViewModel>>(movieList);
-            //var den = _context.Actors.Where(x => x.ActorMovie)
             return movieDetails;
         }
+
+
 
         public class MovieDetailsViewModel
         {
@@ -46,14 +41,11 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public float Price { get; set; }
             public string? MovieGenre { get; set; }
             public string? MovieDirector { get; set; }
-            public List<Actor>? MovieActor { get; set; }
+            public ICollection<Actor>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
 
         }
-        public class MovieActorViewModel
-        {
-            public string ActorName { get; set; }
-            public string ActorSurname { get; set; }
-        }
+
+
     }
 }

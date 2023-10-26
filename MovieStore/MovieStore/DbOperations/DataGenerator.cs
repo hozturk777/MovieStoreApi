@@ -71,8 +71,7 @@ namespace MovieStore.DbOperations
                         MovieGenreId = 1,
                         MovieDirector = "director1",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        //MovieActorId = 1
-                        //MovieActor = new List<Actor>()
+                        MovieActor = new List<Actor>()
                     },
                     new Movie
                     {
@@ -81,8 +80,7 @@ namespace MovieStore.DbOperations
                         MovieGenreId = 2,
                         MovieDirector = "director2",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        //MovieActorId = 1,              
-                        //MovieActor = new List<Actor>()
+                        MovieActor = new List<Actor>() 
                     }
                     
                 ) ;

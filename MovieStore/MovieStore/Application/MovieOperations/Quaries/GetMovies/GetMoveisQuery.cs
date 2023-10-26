@@ -12,7 +12,6 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
 
         public GetMoveisQuery(IMovieContext movieContext, IMapper mapper)
         {
-
             _movieContext = movieContext;
             _mapper = mapper;
         }
@@ -46,10 +45,6 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMovies
             public string? MovieName { get; set; }
             public float Price { get; set; }
             public string? MovieGenre { get; set; }
-            //public string? MovieDirector { get; set; }
-            //public string? MovieActor { get; set; }
-            //public string? PublishDate { get; set; }
         }
-
     }
 }
