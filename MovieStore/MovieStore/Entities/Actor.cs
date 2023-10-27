@@ -8,7 +8,6 @@ namespace MovieStore.Entities
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string? den { get; set; }
         public string? ActorName { get; set; }
         public string? ActorSurname { get; set; }
         //public List<Movie>? ActorMovie { get; set; }
@@ -16,7 +15,7 @@ namespace MovieStore.Entities
         [JsonIgnore] //actoru çekerken movieleri gelmez burada 
         public ICollection<Movie> ActorMovie { get; set; }
 
-        public List<MovieId>? ActorMovieId { get; set; }
+        public int? ActorMovieId { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }

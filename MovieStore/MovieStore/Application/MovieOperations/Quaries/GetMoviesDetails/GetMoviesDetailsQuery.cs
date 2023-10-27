@@ -41,11 +41,15 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public float Price { get; set; }
             public string? MovieGenre { get; set; }
             public string? MovieDirector { get; set; }
-            public ICollection<Actor>? MovieActor { get; set; }
+            public ICollection<ActorNameViewModel>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
 
         }
 
-
+        public class ActorNameViewModel
+        {
+            public string? ActorName { get; set; }
+            public string? ActorSurname { get; set; }
+        }
     }
 }

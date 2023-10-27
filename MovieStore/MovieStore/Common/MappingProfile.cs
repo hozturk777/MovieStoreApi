@@ -16,10 +16,14 @@ namespace MovieStore.Common
         {
             //  Movie
             CreateMap<CreateMoviesModel, Movie>();
+
             CreateMap<Movie, MovieViewModel>()
                 .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => $"{src.MovieGenre.GenreName}"));
+
             CreateMap<Movie, MovieDetailsViewModel>()
                 .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => $"{src.MovieGenre.GenreName}"));
+            
+            CreateMap<Actor, ActorNameViewModel>();
             
 
 
@@ -27,6 +31,17 @@ namespace MovieStore.Common
             CreateMap<Actor, GetActorViewModel>();  
             CreateMap<CreateActorModel, Actor>();
 
+        }
+        
+        public List<string>? Actors(ICollection<Actor>? getActor)
+        {
+            List<string>? resultActor = new List<string>();
+            foreach (var actor in getActor)
+            {
+                resultActor.Add(actor.ActorName + " " + actor.ActorSurname);
+                
+            }
+            return resultActor;
         }
     }
 }

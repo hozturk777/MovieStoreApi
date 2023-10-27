@@ -32,10 +32,9 @@ namespace MovieStore.Application.ActorOperations.Quaries.GetActor
         public class GetActorViewModel
         {
             public int Id { get; set; }
-            public int IdId { get; set; }
             public string? ActorName { get; set; }
             public string? ActorSurname { get; set; }
-            //public List<Movie>? ActorMovie { get; set; }
+            public ICollection<Movie>? ActorMovie { get; set; }
         }
     }
 }
