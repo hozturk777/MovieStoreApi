@@ -22,6 +22,10 @@ namespace MovieStore.Application.MovieOperations.Commands.UpdateMovie
             {
                 throw new InvalidOperationException("Böyle Bir Film Yok!");
             }
+
+
+            
+            
             movieUpdate.MovieName = Model.MovieName != default ? Model.MovieName : movieUpdate.MovieName;
             movieUpdate.Price = Model.Price != default ? Model.Price : movieUpdate.Price;
             movieUpdate.MovieGenreId = Model.MovieGenreId != default ? Model.MovieGenreId : movieUpdate.MovieGenreId;
@@ -31,8 +35,15 @@ namespace MovieStore.Application.MovieOperations.Commands.UpdateMovie
             ICollection<Actor> actors = new List<Actor>();
             Actor actor = GetActorByID(movieUpdate.MovieActorId);
             actors.Add(actor);
-
             movieUpdate.MovieActor = actors;
+
+            // ActorMovie Update
+            var actorMovieUpdate = _context.Actors.SingleOrDefault(x => x.Id == movieUpdate.MovieActorId);
+            ICollection<Movie> actorMovieList = new List<Movie>();
+            Movie actorMovie= _context.Movies.SingleOrDefault(x => x.Id == MovieId);
+            actorMovieList.Add(actorMovie);
+            actorMovieUpdate.ActorMovie = actorMovieList;
+            
 
             _context.SaveChanges();
         }

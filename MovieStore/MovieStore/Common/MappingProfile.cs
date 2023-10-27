@@ -30,18 +30,8 @@ namespace MovieStore.Common
             //  Actor
             CreateMap<Actor, GetActorViewModel>();  
             CreateMap<CreateActorModel, Actor>();
+            CreateMap<Movie, ActorMovieViewModel>();
 
-        }
-        
-        public List<string>? Actors(ICollection<Actor>? getActor)
-        {
-            List<string>? resultActor = new List<string>();
-            foreach (var actor in getActor)
-            {
-                resultActor.Add(actor.ActorName + " " + actor.ActorSurname);
-                
-            }
-            return resultActor;
-        }
+        }   
     }
 }

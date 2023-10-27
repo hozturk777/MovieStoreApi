@@ -12,10 +12,9 @@ namespace MovieStore.Entities
         public string? ActorSurname { get; set; }
         //public List<Movie>? ActorMovie { get; set; }
 
-        [JsonIgnore] //actoru çekerken movieleri gelmez burada 
-        public ICollection<Movie> ActorMovie { get; set; }
+        //[JsonIgnore] //actoru çekerken movieleri gelmez burada 
+        public ICollection<Movie>? ActorMovie { get; set; }
 
-        public int? ActorMovieId { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }

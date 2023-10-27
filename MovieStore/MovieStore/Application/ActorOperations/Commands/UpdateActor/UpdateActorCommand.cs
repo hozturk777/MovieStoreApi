@@ -24,7 +24,7 @@ namespace MovieStore.Application.ActorOperations.Commands.UpdateActor
             }
             actor.ActorName = Model.Actorname != default ? Model.Actorname : actor.ActorName;
             actor.ActorSurname = Model.ActorSurname != default ? Model.ActorSurname : actor.ActorSurname;
-            actor.ActorMovieId = Model.ActorMovieId;
+            
 
             _movieContext.SaveChanges();
         }
@@ -33,7 +33,7 @@ namespace MovieStore.Application.ActorOperations.Commands.UpdateActor
         {
             public string? Actorname { get; set; }
             public string? ActorSurname { get; set; }
-            public int? ActorMovieId { get; set; }
+            
         }
     }
 }

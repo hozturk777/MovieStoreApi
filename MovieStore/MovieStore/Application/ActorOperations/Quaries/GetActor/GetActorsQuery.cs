@@ -21,7 +21,7 @@ namespace MovieStore.Application.ActorOperations.Quaries.GetActor
         {
             var actors = _context.Actors
                 .Where(x => x.IsActive == true)
-                //.Include(x => x.ActorMovie)
+                .Include(x => x.ActorMovie)
                 .OrderBy(x => x.Id)
                 .ToList();
             List<GetActorViewModel> actorsList = _mapper.Map<List<GetActorViewModel>>(actors);
@@ -34,7 +34,13 @@ namespace MovieStore.Application.ActorOperations.Quaries.GetActor
             public int Id { get; set; }
             public string? ActorName { get; set; }
             public string? ActorSurname { get; set; }
-            public ICollection<Movie>? ActorMovie { get; set; }
+            public ICollection<ActorMovieViewModel>? ActorMovie { get; set; }
+        }
+
+        public class ActorMovieViewModel
+        {
+            public string? MovieName { get; set; }
+            public string? MovieGenre { get; set; }
         }
     }
 }
