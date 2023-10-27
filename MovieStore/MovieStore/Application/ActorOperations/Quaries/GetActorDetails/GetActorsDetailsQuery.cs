@@ -6,30 +6,30 @@ using static MovieStore.Application.MovieOperations.Quaries.GetMovies.GetMoveisQ
 
 namespace MovieStore.Application.ActorOperations.Quaries.GetActor
 {
-    public class GetActors
+    public class GetActorsDetailsQuery
     {
         private readonly IMovieContext _context;
         private readonly IMapper _mapper;
 
-        public GetActors(IMovieContext context, IMapper mapper)
+        public GetActorsDetailsQuery(IMovieContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public List<GetActorViewModel> Handle()
+        public List<GetActorDetailsViewModel> Handle()
         {
             var actors = _context.Actors
                 .Where(x => x.IsActive == true)
                 .Include(x => x.ActorMovie)
                 .OrderBy(x => x.Id)
                 .ToList();
-            List<GetActorViewModel> actorsList = _mapper.Map<List<GetActorViewModel>>(actors);
+            List<GetActorDetailsViewModel> actorsList = _mapper.Map<List<GetActorDetailsViewModel>>(actors);
             
             return actorsList;
         }
 
-        public class GetActorViewModel
+        public class GetActorDetailsViewModel
         {
             public int Id { get; set; }
             public string? ActorName { get; set; }

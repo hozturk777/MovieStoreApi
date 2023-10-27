@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using MovieStore.DbOperations;
-using MovieStore.Entities;
-using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActors;
 
 namespace MovieStore.Application.DirectorOperations.Quaries.GetDirector
 {

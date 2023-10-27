@@ -31,17 +31,31 @@ namespace MovieStore.Application.MovieOperations.Commands.UpdateMovie
             movieUpdate.MovieDirectorId = Model.MovieDirectorId != default ? Model.MovieDirectorId : movieUpdate.MovieDirectorId;
 
             //  MovieActor in Movie
+
             ICollection<Actor> actors = new List<Actor>();
             Actor actor = GetActorByID(movieUpdate.MovieActorId);
-            actors.Add(actor);
-            movieUpdate.MovieActor = actors;
+            if (actor.IsActive)
+            {
+                actors.Add(actor);
+                movieUpdate.MovieActor = actors;
+            }
+            else
+            {
+                throw new InvalidOperationException("Öyle Bir Aktör Yok!");
+            }
 
             //  MovieDirector in Movie
             ICollection<Director> directors = new List<Director>();
             Director director = GetDirectorByID(movieUpdate.MovieDirectorId);
-            directors.Add(director);
-            movieUpdate.MovieDirector = directors;
-
+            if (director.IsActive)
+            {
+                directors.Add(director);
+                movieUpdate.MovieDirector = directors;
+            }
+            else
+            {
+                throw new InvalidOperationException("Öyle Bir Yönetici Yok!");
+            }
             // ActorMovie in Actor
             var actorMovieUpdate = _context.Actors.SingleOrDefault(x => x.Id == movieUpdate.MovieActorId);
             ICollection<Movie> actorMovieList = new List<Movie>();

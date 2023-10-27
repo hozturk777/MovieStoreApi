@@ -2,10 +2,13 @@
 using MovieStore.DbOperations;
 using MovieStore.Entities;
 using static MovieStore.Application.ActorOperations.Commands.CreateActor.CreateActorCommand;
-using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActors;
+using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorQuery;
+using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorsDetailsQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetFalseActor.GetFalseActorQuery;
+using static MovieStore.Application.DirectorOperations.Commands.CreateDirector.CreateDirectorCommand;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirector.GetDirectorQuery;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirectorDetails.GetDirectorDetailsQuery;
+using static MovieStore.Application.DirectorOperations.Quaries.GetFalseDirectors.GetFalseDirectorQuery;
 using static MovieStore.Application.MovieOperations.Commands.CreateMovie.CreateMoviesQuery;
 using static MovieStore.Application.MovieOperations.Quaries.GetFalseMovies.GetFalseMoviesQuery;
 using static MovieStore.Application.MovieOperations.Quaries.GetMovies.GetMoveisQuery;
@@ -38,6 +41,8 @@ namespace MovieStore.Common
             //  Actor
                 //  ActorGet
             CreateMap<Actor, GetActorViewModel>();
+                //  ActorGetDetails
+            CreateMap<Actor, GetActorDetailsViewModel>();
             CreateMap<Movie, ActorMovieViewModel>();
                 //  ActorCreate
             CreateMap<CreateActorModel, Actor>();
@@ -53,6 +58,12 @@ namespace MovieStore.Common
                 //  DirectorGetDetail
             CreateMap<Director, GetDirectorDetailsViewModel>();
             CreateMap<Movie, MovieNameViewModel>();
+            //  DirectorCreate
+            CreateMap<CreateDirectorModel, Director>();
+
+            //  Delete(IsActive : False) Director
+            CreateMap<Director, GetFalseDirectorViewModel>();
+            CreateMap<Movie, FalseMovieNameViewModel>();
 
         }   
     }

@@ -25,7 +25,15 @@ namespace MovieStore.Controllers
         [HttpGet("list/actors")]
         public IActionResult GetActors()
         {
-            GetActors query = new GetActors(_movieContext, _mapper);
+            GetActorQuery query = new GetActorQuery(_movieContext, _mapper);
+            var handle = query.Handle();
+            return Ok(handle);
+        }
+
+        [HttpGet("list/actorsDetails")]
+        public IActionResult GetActorsDetails() 
+        {
+            GetActorsDetailsQuery query = new GetActorsDetailsQuery(_movieContext, _mapper);
             var handle = query.Handle();
             return Ok(handle);
         }
