@@ -15,10 +15,11 @@ namespace MovieStore.Entities
         public string? PublishDate { get; set; }
         public int? MovieGenreId { get; set; } = null;
         public Genre? MovieGenre { get; set; } = null;
-        public string? MovieDirector { get; set; } = null;
         public int? MovieActorId { get; set; } = null;
         //public IEnumerable<Actor> MovieActor {  get; set; } = null;
         public ICollection<Actor>? MovieActor { get; set; }
+        public int? MovieDirectorId { get; set; } = null;
+        public ICollection<Director>? MovieDirector { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }

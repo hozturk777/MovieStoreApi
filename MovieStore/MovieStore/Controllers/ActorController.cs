@@ -4,6 +4,7 @@ using MovieStore.Application.ActorOperations.Commands.CreateActor;
 using MovieStore.Application.ActorOperations.Commands.DeleteActor;
 using MovieStore.Application.ActorOperations.Commands.UpdateActor;
 using MovieStore.Application.ActorOperations.Quaries.GetActor;
+using MovieStore.Application.ActorOperations.Quaries.GetFalseActor;
 using MovieStore.DbOperations;
 using static MovieStore.Application.ActorOperations.Commands.CreateActor.CreateActorCommand;
 using static MovieStore.Application.ActorOperations.Commands.UpdateActor.UpdateActorCommand;
@@ -24,7 +25,15 @@ namespace MovieStore.Controllers
         [HttpGet("list/actors")]
         public IActionResult GetActors()
         {
-            GetActorsQuery query = new GetActorsQuery(_movieContext, _mapper);
+            GetActors query = new GetActors(_movieContext, _mapper);
+            var handle = query.Handle();
+            return Ok(handle);
+        }
+
+        [HttpGet("list/falseActors")]
+        public IActionResult GetFalseActors()
+        {
+            GetFalseActorQuery query = new GetFalseActorQuery(_movieContext, _mapper);
             var handle = query.Handle();
             return Ok(handle);
         }

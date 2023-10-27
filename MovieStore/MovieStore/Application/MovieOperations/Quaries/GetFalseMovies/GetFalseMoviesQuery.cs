@@ -1,42 +1,36 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MovieStore.DbOperations;
-using MovieStore.Entities;
+using static MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails.GetMoviesDetailsQuery;
 
-namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
+namespace MovieStore.Application.MovieOperations.Quaries.GetFalseMovies
 {
-    public class GetMoviesDetailsQuery
+    public class GetFalseMoviesQuery
     {
         private readonly IMovieContext _context;
         private readonly IMapper _mapper;
-        public GetMoviesDetailsQuery(IMovieContext context, IMapper mapper)
+
+        public GetFalseMoviesQuery(IMovieContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public List<MovieDetailsViewModel> Handle()
+        public List<GetFalseMoviesViewModel> Handle()
         {
             var movieList = _context.Movies
-                .Where(x => x.IsActive == true)
+                .Where(x => x.IsActive == false)
                 .Include(x => x.MovieActor)
                 .Include(x => x.MovieDirector)
                 .Include(x => x.MovieGenre)
                 .OrderBy(x => x.Id)
                 .ToList();
 
-            //döngüden kurtulmak için DTO kullanılabilir. Veya automapper kullanıp include'yi kullanma
-
-
-
-            //return movieList;
-            List<MovieDetailsViewModel> movieDetails = _mapper.Map<List<MovieDetailsViewModel>>(movieList);
+            List<GetFalseMoviesViewModel> movieDetails = _mapper.Map<List<GetFalseMoviesViewModel>>(movieList);
             return movieDetails;
         }
 
-
-
-        public class MovieDetailsViewModel
+        public class GetFalseMoviesViewModel
         {
             public int? Id { get; set; }
             public string? MovieName { get; set; }
@@ -46,19 +40,6 @@ namespace MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails
             public ICollection<ActorNameViewModel>? MovieActor { get; set; }
             public string? PublishDate { get; set; }
             public bool IsActive { get; set; }
-
-        }
-
-        public class ActorNameViewModel
-        {
-            public string? ActorName { get; set; }
-            public string? ActorSurname { get; set; }
-        }
-
-        public class DirectorNameViewModel
-        {
-            public string? DirectorName { get; set; }
-            public string? DirectorSurname { get; set; }
         }
     }
 }

@@ -57,8 +57,14 @@ namespace MovieStore.DbOperations
                         {
                             DirectorName = "Director1",
                             DirectorSurname = "Director1"
+                        },
+                        new Director
+                        {
+                            DirectorName = "Director2",
+                            DirectorSurname = "Director2"
                         }
                     );
+                context.SaveChanges();
 
                 //  MOVİE
                 //var movie = new List<Movie>
@@ -69,18 +75,18 @@ namespace MovieStore.DbOperations
                         MovieName = "movie1",
                         Price = 113,
                         MovieGenreId = 1,
-                        MovieDirector = "director1",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        MovieActor = new List<Actor>()
+                        MovieActor = new List<Actor>(),
+                        MovieDirector = new List<Director>()
                     },
                     new Movie
                     {
                         MovieName = "movie2",
                         Price = 3123,
                         MovieGenreId = 2,
-                        MovieDirector = "director2",
                         PublishDate = DateTime.Now.ToString("MM/dd/yyyy"),
-                        MovieActor = new List<Actor>() 
+                        MovieActor = new List<Actor>(),
+                        MovieDirector = new List<Director>()
                     }
                     
                 ) ;

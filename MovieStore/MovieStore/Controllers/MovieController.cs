@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieStore.Application.MovieOperations.Commands.CreateMovie;
 using MovieStore.Application.MovieOperations.Commands.DeleteMovie;
 using MovieStore.Application.MovieOperations.Commands.UpdateMovie;
+using MovieStore.Application.MovieOperations.Quaries.GetFalseMovies;
 using MovieStore.Application.MovieOperations.Quaries.GetMovies;
 using MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails;
 using MovieStore.DbOperations;
@@ -38,6 +39,14 @@ namespace MovieStore.Controllers
         {
             GetMoviesDetailsQuery getMoviesDetails = new GetMoviesDetailsQuery(_movieContext, _mapper);
             var result = getMoviesDetails.Handle();
+            return Ok(result);
+        }
+
+        [HttpGet("list/falseMovies")]
+        public IActionResult GetFalseMovies()
+        {
+            GetFalseMoviesQuery getFalseMoviesQuery = new GetFalseMoviesQuery(_movieContext, _mapper);
+            var result = getFalseMoviesQuery.Handle();
             return Ok(result);
         }
 
