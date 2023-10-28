@@ -12,7 +12,6 @@ namespace MovieStore.DbOperations
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<MovieId> MovieIds { get; set; }
 
         int SaveChanges();
     }

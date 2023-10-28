@@ -22,7 +22,16 @@ namespace MovieStore.Application.MovieOperations.Commands.CreateMovie
             var createMovie = _context.Movies.SingleOrDefault(x => x.MovieName == Model.MovieName);
             if (createMovie != null)
             {
-                throw new InvalidOperationException("Bu Film Zaten Var!");
+                if (createMovie.IsActive)
+                {
+                    throw new InvalidOperationException("Bu Film Zaten Var!");
+                }
+                else
+                {
+                    createMovie.IsActive = true;
+                    _context.SaveChanges();
+                    throw new InvalidOperationException("Önceden Eklenildi Film Listesini Kontrol Et!");
+                }
             }
             createMovie = _mapper.Map<Movie>(Model);
             _context.Movies.Add(createMovie);

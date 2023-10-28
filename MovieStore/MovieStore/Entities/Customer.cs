@@ -8,8 +8,12 @@ namespace MovieStore.Entities
         public int Id { get; set; }
         public string? CustomerName { get; set; }
         public string? CustomerSurname { get; set; }
-        public Movie? BuyMovies { get; set; }
-        public Movie? FavMovies { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpireDate { get; set; }
+        public ICollection<Movie>? BuyMovies { get; set; }
+        public ICollection<Movie>? FavMovies { get; set; }
         public bool IsActive { get; set; } = true;
 
     }

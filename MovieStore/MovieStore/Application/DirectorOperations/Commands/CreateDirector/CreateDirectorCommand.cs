@@ -18,10 +18,20 @@ namespace MovieStore.Application.DirectorOperations.Commands.CreateDirector
 
         public void Handle()
         {
-            var director = _context.Directors.SingleOrDefault(x => x.DirectorName == Model.DirectorName);
+            var director = _context.Directors
+                .SingleOrDefault(x => x.DirectorName == Model.DirectorName);
             if (director != null) 
             {
-                throw new InvalidOperationException("Bu İsimde Bir Yönetmen Zaten Var!");
+                if(director.IsActive)
+                {
+                    throw new InvalidOperationException("Bu İsimde Bir Yönetmen Zaten Var!");
+                }
+                else
+                {
+                    director.IsActive = true;
+                    _context.SaveChanges();
+                    throw new InvalidOperationException("Önceden Eklenildi Yönetici Listesini Kontrol Et!");
+                }
             }
             director = _mapper.Map<Director>(Model);
             _context.Directors.Add(director);

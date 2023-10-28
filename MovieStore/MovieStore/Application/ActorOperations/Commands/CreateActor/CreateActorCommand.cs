@@ -21,7 +21,16 @@ namespace MovieStore.Application.ActorOperations.Commands.CreateActor
             var actors = _context.Actors.SingleOrDefault(x => x.ActorName == Model.ActorName);
             if (actors != null)
             {
-                throw new InvalidOperationException("Böyle Bir Actor Zaten Mevcut!");
+                if (actors.IsActive)
+                {
+                    throw new InvalidOperationException("Böyle Bir Actor Zaten Mevcut!");
+                }
+                else
+                {
+                    actors.IsActive = true;
+                    _context.SaveChanges();
+                    throw new InvalidOperationException("Önceden Eklenildi Actor Listesini Kontrol Et!");
+                }
             }
             actors = _mapper.Map<Actor>(Model);
             _context.Actors.Add(actors);
