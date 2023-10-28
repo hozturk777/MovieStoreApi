@@ -5,6 +5,7 @@ using static MovieStore.Application.ActorOperations.Commands.CreateActor.CreateA
 using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorsDetailsQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetFalseActor.GetFalseActorQuery;
+using static MovieStore.Application.CustomerOperations.CreateCustomer.CreateCustomerCommand;
 using static MovieStore.Application.DirectorOperations.Commands.CreateDirector.CreateDirectorCommand;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirector.GetDirectorQuery;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirectorDetails.GetDirectorDetailsQuery;
@@ -32,7 +33,6 @@ namespace MovieStore.Common
                 .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => $"{src.MovieGenre.GenreName}"));        
             CreateMap<Actor, ActorNameViewModel>();
             CreateMap<Director, DirectorNameViewModel>();
-
             //  Delete(IsActive : false) Movie
             CreateMap<Movie, GetFalseMoviesViewModel>()
                 .ForMember(dest => dest.MovieGenre, opt => opt.MapFrom(src => $"{src.MovieGenre.GenreName}"));
@@ -46,11 +46,10 @@ namespace MovieStore.Common
             CreateMap<Movie, ActorMovieViewModel>();
                 //  ActorCreate
             CreateMap<CreateActorModel, Actor>();
-            
-
             //  Delete(IsActive : False) Actor
             CreateMap<Actor, GetFalseActorViewModel>();
             CreateMap<Movie, FalseActorMovieViewModel>();
+
 
             //  Director
                 //  DirectorGet
@@ -58,13 +57,15 @@ namespace MovieStore.Common
                 //  DirectorGetDetail
             CreateMap<Director, GetDirectorDetailsViewModel>();
             CreateMap<Movie, MovieNameViewModel>();
-            //  DirectorCreate
+                //  DirectorCreate
             CreateMap<CreateDirectorModel, Director>();
-
             //  Delete(IsActive : False) Director
             CreateMap<Director, GetFalseDirectorViewModel>();
             CreateMap<Movie, FalseMovieNameViewModel>();
 
+
+            //  Customer
+            CreateMap<CreateCustomerModel, Customer>();
         }   
     }
 }

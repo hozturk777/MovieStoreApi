@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Application.MovieOperations.Commands.CreateMovie;
 using MovieStore.Application.MovieOperations.Commands.DeleteMovie;
@@ -13,8 +14,9 @@ using static MovieStore.Application.MovieOperations.Commands.UpdateMovie.UpdateM
 
 namespace MovieStore.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Authorize]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class MovieController : ControllerBase
     {
         private readonly IMovieContext _movieContext;

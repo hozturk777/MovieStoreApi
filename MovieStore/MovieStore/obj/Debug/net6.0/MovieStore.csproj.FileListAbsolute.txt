@@ -44,3 +44,11 @@ C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\obj\Debug\net6
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\obj\Debug\net6.0\MovieStore.pdb
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\obj\Debug\net6.0\MovieStore.genruntimeconfig.cache
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\obj\Debug\net6.0\ref\MovieStore.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
