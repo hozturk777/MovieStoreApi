@@ -34,7 +34,7 @@ namespace MovieStore.Controllers
         [HttpPost("connect/token")]
         public ActionResult<Token> CreateToken([FromBody] CreateTokenModel login)
         {
-            CreateTokenCommand command = new CreateTokenCommand(_context, _configuration);
+            CreateTokenCommand command = new CreateTokenCommand(_context, _configuration, _mapper);
             command.Model = login;
             var token = command.Handle();
             return token;

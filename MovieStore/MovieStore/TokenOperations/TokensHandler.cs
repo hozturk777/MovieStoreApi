@@ -17,15 +17,15 @@ namespace MovieStore.TokenOperations
         public Token CreateAccessToken(Customer customer)
         {
             Token tokenModel = new Token();
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Token:SecurityKey"]));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManagers.Appsetting["Jwt:SecurityKey"]));
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             tokenModel.Expiration = DateTime.Now.AddMinutes(30);
 
             JwtSecurityToken securityToken = new JwtSecurityToken
                 (
-                issuer: _configuration["Token:Issuer"],
-                audience: _configuration["Token:Audience"],
+                issuer: ConfigurationManagers.Appsetting["Jwt:Issuer"],
+                audience: ConfigurationManagers.Appsetting["Jwt:Audience"],
                 expires: tokenModel.Expiration,
                 notBefore: DateTime.Now,
                 signingCredentials: credentials

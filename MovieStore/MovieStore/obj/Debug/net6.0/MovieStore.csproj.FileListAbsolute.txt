@@ -52,3 +52,5 @@ C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\VICTUS\Desktop\HÜSEYİN\MovieRepo\MovieStore\MovieStore\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll

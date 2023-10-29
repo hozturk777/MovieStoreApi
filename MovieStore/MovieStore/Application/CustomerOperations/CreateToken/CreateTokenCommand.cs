@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
 using MovieStore.DbOperations;
 using MovieStore.TokenOperations;
 using MovieStore.TokenOperations.Models;
@@ -8,12 +9,14 @@ namespace MovieStore.Application.CustomerOperations.CreateToken
     public class CreateTokenCommand
     {
         private readonly IMovieContext _context;
+        private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         public CreateTokenModel Model {  get; set; } 
 
-        public CreateTokenCommand(IMovieContext context, IConfiguration configuration)
+        public CreateTokenCommand(IMovieContext context, IConfiguration configuration, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
             _configuration = configuration;
         }
 
