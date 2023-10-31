@@ -6,6 +6,7 @@ using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorQue
 using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorsDetailsQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetFalseActor.GetFalseActorQuery;
 using static MovieStore.Application.CustomerOperations.CreateCustomer.CreateCustomerCommand;
+using static MovieStore.Application.CustomerOperations.Quaries.GetCustomerQuery;
 using static MovieStore.Application.DirectorOperations.Commands.CreateDirector.CreateDirectorCommand;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirector.GetDirectorQuery;
 using static MovieStore.Application.DirectorOperations.Quaries.GetDirectorDetails.GetDirectorDetailsQuery;
@@ -66,6 +67,7 @@ namespace MovieStore.Common
 
             //  Customer
             CreateMap<CreateCustomerModel, Customer>();
+            CreateMap<Customer, GetCustomerViewModel>();
         }   
     }
 }

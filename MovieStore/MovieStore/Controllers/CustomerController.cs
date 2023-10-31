@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using MovieStore.Application.CustomerOperations.Commands.UpdateCustomer;
 using MovieStore.Application.CustomerOperations.CreateCustomer;
 using MovieStore.Application.CustomerOperations.CreateRefreshToken;
 using MovieStore.Application.CustomerOperations.CreateToken;
+using MovieStore.Application.CustomerOperations.Quaries;
 using MovieStore.DbOperations;
 using MovieStore.TokenOperations.Models;
+using static MovieStore.Application.CustomerOperations.Commands.UpdateCustomer.UpdateCustomerCommand;
 using static MovieStore.Application.CustomerOperations.CreateCustomer.CreateCustomerCommand;
 using static MovieStore.Application.CustomerOperations.CreateToken.CreateTokenCommand;
 
@@ -22,10 +25,28 @@ namespace MovieStore.Controllers
             _configuration = configuration;
         }
 
+        [HttpGet("list/customer")]
+        public ActionResult GetCustomer() 
+        {
+            GetCustomerQuery query = new GetCustomerQuery(_context, _mapper);
+            var result = query.Handle();
+            return Ok(result);
+        }
+
         [HttpPost("create/customer")]
         public ActionResult CreateCustomer([FromBody]CreateCustomerModel model)
         {
             CreateCustomerCommand command = new CreateCustomerCommand(_context, _mapper);
+            command.Model = model;
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpPut("update/customer")]
+        public IActionResult UpdateCustomer(int Id, [FromBody] UpdateCustomerModel model)
+        {
+            UpdateCustomerCommand command = new UpdateCustomerCommand(_context);
+            command.CustomerId = Id;
             command.Model = model;
             command.Handle();
             return Ok();

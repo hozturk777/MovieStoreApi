@@ -13,9 +13,8 @@ namespace MovieStore.Entities
         public string? Password { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpireDate { get; set; }
-        public ICollection<Movie>? BuyMovies { get; set; }
-        public ICollection<Movie>? FavMovies { get; set; }
-        public bool IsActive { get; set; } = true;
-
+        public ICollection<Movie>? CustomerCart { get; set; }
+        public ICollection<Genre>? CustomerFavGenres { get; set; }
+        //public bool IsActive { get; set; } = true;
     }
 }
