@@ -45,7 +45,7 @@ namespace MovieStore.Controllers
         [HttpPut("update/customer")]
         public IActionResult UpdateCustomer(int Id, [FromBody] UpdateCustomerModel model)
         {
-            UpdateCustomerCommand command = new UpdateCustomerCommand(_context);
+            UpdateCustomerCommand command = new UpdateCustomerCommand(_context, _mapper);
             command.CustomerId = Id;
             command.Model = model;
             command.Handle();

@@ -5,6 +5,7 @@ using static MovieStore.Application.ActorOperations.Commands.CreateActor.CreateA
 using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetActor.GetActorsDetailsQuery;
 using static MovieStore.Application.ActorOperations.Quaries.GetFalseActor.GetFalseActorQuery;
+using static MovieStore.Application.CustomerOperations.Commands.UpdateCustomer.UpdateCustomerCommand;
 using static MovieStore.Application.CustomerOperations.CreateCustomer.CreateCustomerCommand;
 using static MovieStore.Application.CustomerOperations.Quaries.GetCustomerQuery;
 using static MovieStore.Application.DirectorOperations.Commands.CreateDirector.CreateDirectorCommand;
@@ -15,6 +16,7 @@ using static MovieStore.Application.MovieOperations.Commands.CreateMovie.CreateM
 using static MovieStore.Application.MovieOperations.Quaries.GetFalseMovies.GetFalseMoviesQuery;
 using static MovieStore.Application.MovieOperations.Quaries.GetMovies.GetMoveisQuery;
 using static MovieStore.Application.MovieOperations.Quaries.GetMoviesDetails.GetMoviesDetailsQuery;
+using static MovieStore.Application.OrderOperations.Quaries.GerOrder.GetOrderQuery;
 
 namespace MovieStore.Common
 {
@@ -67,7 +69,15 @@ namespace MovieStore.Common
 
             //  Customer
             CreateMap<CreateCustomerModel, Customer>();
+            //CreateMap<Customer, UpdateCustomerModel>();
             CreateMap<Customer, GetCustomerViewModel>();
+            CreateMap<GetCustomerViewModel, Customer>();
+
+            //  Order
+            CreateMap<Order, GetOrderViewModel>();
+            CreateMap<Customer, GetCustomerOrderModel>();
+            CreateMap<Movie, GetMovieOrderModel>();
+            
         }   
     }
 }
