@@ -26,7 +26,7 @@ namespace MovieStore.Controllers
         }
 
         [HttpGet("list/customer")]
-        public ActionResult GetCustomer() 
+        public IActionResult GetCustomer() 
         {
             GetCustomerQuery query = new GetCustomerQuery(_context, _mapper);
             var result = query.Handle();
@@ -34,7 +34,7 @@ namespace MovieStore.Controllers
         }
 
         [HttpPost("create/customer")]
-        public ActionResult CreateCustomer([FromBody]CreateCustomerModel model)
+        public IActionResult CreateCustomer([FromBody]CreateCustomerModel model)
         {
             CreateCustomerCommand command = new CreateCustomerCommand(_context, _mapper);
             command.Model = model;
@@ -43,9 +43,9 @@ namespace MovieStore.Controllers
         }
 
         [HttpPut("update/customer")]
-        public IActionResult UpdateCustomer(int Id, [FromBody] UpdateCustomerModel model)
+        public IActionResult UpdateCustomer(int? Id, [FromBody] UpdateCustomerModel model)
         {
-            UpdateCustomerCommand command = new UpdateCustomerCommand(_context, _mapper);
+            UpdateCustomerCommand command = new UpdateCustomerCommand(_context);
             command.CustomerId = Id;
             command.Model = model;
             command.Handle();

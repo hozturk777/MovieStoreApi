@@ -5,7 +5,7 @@ namespace MovieStore.Entities
 {
     public class Customer
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? CustomerName { get; set; }
         public string? CustomerSurname { get; set; }
@@ -13,6 +13,7 @@ namespace MovieStore.Entities
         public string? Password { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpireDate { get; set; }
+        public int? CustomerCartId { get; set; } = null;
         public ICollection<Movie>? CustomerCart { get; set; }
         public ICollection<Genre>? CustomerFavGenres { get; set; }
         //public bool IsActive { get; set; } = true;

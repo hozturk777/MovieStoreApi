@@ -25,7 +25,7 @@ namespace MovieStore.Application.CustomerOperations.CreateCustomer
                 throw new InvalidOperationException("Bu Email Hesabı Zaten Kayıtlı");
             }
             customer = _mapper.Map<Customer>(Model);
-
+            
             _context.Customers.Add(customer);
             _context.SaveChanges();
         }

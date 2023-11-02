@@ -33,7 +33,7 @@ namespace MovieStore.Application.OrderOperations.Quaries.GerOrder
         {
             public int Id { get; set; }
             public ICollection<GetCustomerOrderModel> OrderCustomer { get; set; }
-            public ICollection<GetMovieOrderModel> OrderMovie { get; set; }
+            public ICollection<Movie> OrderMovie { get; set; }
             public string SellTime { get; set; }
         }
 
@@ -46,14 +46,14 @@ namespace MovieStore.Application.OrderOperations.Quaries.GerOrder
             //public string? Password { get; set; }
             //public string? RefreshToken { get; set; }
             //public DateTime RefreshTokenExpireDate { get; set; }
-            //public ICollection<Movie>? CustomerCart { get; set; }
-            //public ICollection<Genre>? CustomerFavGenres { get; set; }
+            //public List<Movie>? CustomerCart { get; set; }
+            //public List<Genre>? CustomerFavGenres { get; set; }
         }
         public class GetMovieOrderModel
         {
             public int Id { get; set; }
             public string? MovieName { get; set; }
-            public string? Prica { get; set; }
+            public string? Price { get; set; }
         }
     }
 }

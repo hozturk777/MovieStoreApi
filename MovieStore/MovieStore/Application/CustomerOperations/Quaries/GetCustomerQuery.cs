@@ -24,21 +24,30 @@ namespace MovieStore.Application.CustomerOperations.Quaries
                 .OrderBy(x => x.Id)
                 .ToList();
 
-            //List<GetCustomerViewModel> customerList = _mapper.Map<List<GetCustomerViewModel>>(customer);
+            List<GetCustomerViewModel> customerList = _mapper.Map<List<GetCustomerViewModel>>(customer);
             return customer;
         }
 
-        //public class GetCustomerViewModel
-        //{
-        //    public int Id { get; set; }
-        //    public string? CustomerName { get; set; }
-        //    public string? CustomerSurname { get; set; }
-        //    public string? Email { get; set; }
-        //    public string? Password { get; set; }
-        //    //public string? RefreshToken { get; set; }
-        //    //public DateTime RefreshTokenExpireDate { get; set; }
-        //    public ICollection<Movie>? CustomerCart { get; set; }
-        //    public ICollection<Genre>? CustomerFavGenres { get; set; }
-        //}
+        public class GetCustomerViewModel
+        {
+            public int Id { get; set; }
+            public string? CustomerName { get; set; }
+            public string? CustomerSurname { get; set; }
+            public string? Email { get; set; }
+            public string? Password { get; set; }
+            //public string? RefreshToken { get; set; }
+            //public DateTime RefreshTokenExpireDate { get; set; }
+            //public int? CustomerCartId { get; set; }
+            public ICollection<GetMovieModel>? CustomerCart { get; set; }
+            //public ICollection<Genre>? CustomerFavGenres { get; set; }
+        }
+
+        public class GetMovieModel
+        {
+            public int Id { get; set; }
+            public string? MovieName { get; set; }
+            public float Price { get; set; }
+            public string? PublishDate { get; set; }
+        }
     }
 }

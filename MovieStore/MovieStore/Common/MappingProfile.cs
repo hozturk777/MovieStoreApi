@@ -69,9 +69,10 @@ namespace MovieStore.Common
 
             //  Customer
             CreateMap<CreateCustomerModel, Customer>();
+            CreateMap<Movie, GetMovieModel>();
             //CreateMap<Customer, UpdateCustomerModel>();
             CreateMap<Customer, GetCustomerViewModel>();
-            CreateMap<GetCustomerViewModel, Customer>();
+            //CreateMap<GetCustomerViewModel, Customer>();
 
             //  Order
             CreateMap<Order, GetOrderViewModel>();

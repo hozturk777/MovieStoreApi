@@ -20,6 +20,7 @@ namespace MovieStore.Entities
         public ICollection<Actor>? MovieActor { get; set; }
         public int? MovieDirectorId { get; set; } = null;
         public ICollection<Director>? MovieDirector { get; set; }
+        
         public bool IsActive { get; set; } = true;
     }
 }
